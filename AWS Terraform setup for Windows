@@ -1,0 +1,99 @@
+Step 1 Install Terraform
+-https://developer.hashicorp.com/terraform
+-Download and unzip the downloaded terraform file.
+-Copy the 'terraform.exe' file.
+-Create a folder in your C drive and title it 'terraform'.
+-Paste the 'terraform.exe' file into the 'terraform' folder you just created.
+
+-For Windows 11 search: view advanced system settings
+
+-Open Environment Variables:
+
+  Search for "environment variables" in the Windows Start menu.
+
+  Select "Edit the system environment variables."
+
+  In the System Properties window, click "Environment Variables..."
+
+  Edit Path Variable:
+
+  Under "System variables" (or "User variables" for your specific user), find the "Path" variable and click "Edit..."
+
+  In the "Edit environment variable" window, click "New."
+
+-Paste the terraform folder into the PATH C:\terraform
+
+===========================================================================================================================================================
+
+
+Step 2 Add Python to PATH
+
+To add Python to the PATH environment variable in Windows 11, follow these steps:
+
+  Locate Python Installation:
+
+  -Find the directory where Python is installed. This typically looks like C:\Users\YourUsername\AppData\Local\Programs\Python\PythonXX (where XX is the version number, e.g., Python310).
+
+  -You will also need the path to the Scripts folder within your Python installation, which will be something like C:\Users\YourUsername\AppData\Local\Programs\Python\PythonXX\Scripts.
+
+  Open Environment Variables:
+
+  Search for "environment variables" in the Windows Start menu.
+
+  Select "Edit the system environment variables."
+
+  In the System Properties window, click "Environment Variables..."
+
+  Edit Path Variable:
+
+  Under "System variables" (or "User variables" for your specific user), find the "Path" variable and click "Edit..."
+
+  In the "Edit environment variable" window, click "New."
+
+  Paste the path to your Python installation directory (e.g., C:\Users\YourUsername\AppData\Local\Programs\Python\Python310).
+
+  Click "New" again and paste the path to your Python Scripts directory (e.g., C:\Users\YourUsername\AppData\Local\Programs\Python\Python310\Scripts).
+
+  Click "OK" on all open windows to save the changes.
+
+  Verify Installation:
+
+  Open a new Command Prompt or PowerShell window.
+
+  Type python --version and press Enter.
+
+  The installed Python version should be displayed, confirming that Python is now accessible from the command line.
+
+=========================================================================================================================================================================
+
+Step 3 Install AWS CLI
+
+
+in PowerShell:  pip install awscli --upgrade
+
+
+If Python is not added to path, try: python -m pip install awscli --upgrade
+
+=========================================================================================================================================================================
+
+Step 4 Connecting to AWS
+
+- Create an IAM user on AWS for Terraform
+  - Assign a permission policy that it will need for your projects. i.e. 'AmazonVPCFullAccess'.
+
+- After creation, click the newly created user, select the 'Security Credentials' tab.
+- Scroll, and find, 'Create access key' select it.
+- Click other unless you have a different selection you would like.
+- Copy the access key
+
+- In VS code right click the terraform file you are going to be working in and select, 'Open in Integrated Terminal'.
+- On the top right of the terminal select the drop down and select Git Bash.
+- Enter the following: 
+  -  "export AWS_ACCESS_KEY_ID= <Your access key>
+  -  "export AWS_SECRET_ACCESS_KEY= <Your secret access key>
+  -  "export AWS_DEFAULT_REGION=us-east-1'or whatever your default region is"
+
+- Or from the drop down select PowerShell
+  -  $Env:AWS_ACCESS_KEY_ID= <Your access key>
+  -  $Env:AWS_SECRET_ACCESS_KEY= <Your secret access key>
+
